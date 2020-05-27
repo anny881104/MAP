@@ -24,9 +24,10 @@ const App = () => {
       longitude: 25.125632,
       latitude: 121.467102,
     },
-    name: "老大",
-    address: "就是老大的地盤",
+    name: "普鱷魚",
+    address: "普洱市無糖路去冰街 999號 -10樓",
   });
+
   const [onCurrentLocation, setOnCurrentLocation] = useState(false);
   const [metro, setMetro] = useState(metroJson);
   const [ubike, setUbike] = useState([]);
@@ -91,6 +92,20 @@ const App = () => {
         showsTraffic
         onRegionChangeComplete={onRegionChangeComplete}
       >
+         {
+            <Marker
+            coordinate={marker.coord}
+            title={marker.name}
+            description={marker.address}
+          >
+           <Image
+              source={require("./assets/people.png")}
+              style={{ width: 35, height: 35 }}
+              resizeMode="contain"
+            />
+          </Marker>
+        }
+
         {metro.map((site) => (
           <Marker
             coordinate={{ latitude: site.latitude, longitude: site.longitude }}
@@ -130,9 +145,9 @@ const App = () => {
           raised
           name="ios-locate"
           type="ionicon"
-          color="black"
+          color="#00A2C8"
           containerStyle={{
-            backgroundColor: "#517fa4",
+            backgroundColor:"#00A2C8",
             position: "absolute",
             right: 20,
             bottom: 40,
