@@ -2,8 +2,9 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 7396,
+  "packagerPid": 25524,
   "expoServerNgrokUrl": "https://xm-2fh.vvany.wkcproj.exp.direct",
   "packagerNgrokUrl": "https://packager.xm-2fh.vvany.wkcproj.exp.direct",
-  "ngrokPid": 16536
+  "ngrokPid": 19680,
+  "webpackServerPort": null
 }

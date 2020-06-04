@@ -6,10 +6,13 @@ import * as Location from "expo-location";
 import { Icon } from "react-native-elements";
 import metroJson from "./josn/metro.json";
 import axios from "axios";
+import { VictoryPie } from "victory-native";
+
 
 const UBIKE_URL =
   "https://data.ntpc.gov.tw/api/datasets/71CD1490-A2DF-4198-BEF1-318479775E8A/json/preview";
 
+const dataColor = ["#FFC408", "#E83015"];
 
 
 const App = () => {
@@ -131,6 +134,18 @@ const App = () => {
             title={`${site.sna} ${site.sbi}/${site.tot}`}
             description={site.address}
             >
+
+            <VictoryPie
+            radius={17}
+            data={[
+              {x:site.tot-site.sbi,y:100-(site.sbi/site.tot)*100},//100%-已借
+              {x:site.sbi,y:(site.sbi/site.tot)*100},//已借
+            ]}
+            colorScale={dataColor}
+            innerRadius={7}
+            labelRadius={10}
+            />
+
             <Image
               source={require("./assets/bike.png")}
               style={{ width: 26, height: 28 }}
